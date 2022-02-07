@@ -1,5 +1,7 @@
-//create new http object from GitHub
+//instantiate GitHub
 const http = new GitHub;
+//instantiate UI
+const ui = new UI;
 //search input
 const searchUser = document.querySelector('#searchUser');
 
@@ -18,7 +20,7 @@ searchUser.addEventListener('keyup', (e) => {
         }
         else {
           //show profile
-
+          ui.showProfile(data.profile)
         }
       })
   }

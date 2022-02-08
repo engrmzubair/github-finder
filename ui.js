@@ -29,10 +29,33 @@ class UI {
       </div>
     </div>
   </div>
-  <h3 class="page-heading mb-3">Latest Repos</h3>
-  <div id="repos"></div>
+  <h3 class="page-heading mb-3 p-4">Latest Repos</h3>
+  <div id="repos" class = "card card-body" style="background-color: #343a40"></div>
 
 `
+  }
+
+  //show user repos
+  showRepos(repos) {
+    let output = '';
+    repos.forEach(repo => {
+      output += `
+      <li class="list-group-item m-2">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+        </div>
+        <div class="col-md-6">
+          <span class="badge badge-primary mr-2 mb-2">Stars: ${repo.stargazers_count}</span>
+          <span class="badge badge-secondary mr-2 mb-2">Watchers: ${repo.watchers_count}</span>
+          <span class="badge badge-success mr-2 mb-2">Forks: ${repo.forks_count}</span>
+        </div>
+      </div>
+    </li>
+      `;
+      //output repos
+      document.querySelector('#repos').innerHTML = output;
+    })
   }
 
   //show alert message
